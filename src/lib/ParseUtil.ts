@@ -1,5 +1,6 @@
 import { Device, DeviceInfo } from 'wideq';
 import { ACParser } from '../devices/ac';
+import { AirPurifierParser } from '../devices/airpurifier';
 import { AccessoryParser } from '../devices/accessory';
 import { DefaultParser } from '../devices/default';
 import { RefrigeratorParser } from '../devices/refrigerator';
@@ -17,6 +18,7 @@ export default class ParseUtil {
 
   public loadParsers() {
     this.parsers = {
+      'AIR_PURIFIER': new AirPurifierParser(this.platform, 'AIR_PURIFIER'),
       'REFRIGERATOR': new RefrigeratorParser(this.platform, 'REFRIGERATOR'),
       'AC': new ACParser(this.platform, 'AC'),
       'WASHER': new WasherParser(this.platform, 'WASHER'),
